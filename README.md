@@ -7,5 +7,5 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/emoji-city-dark.svg?v=3">
   <source media="(prefers-color-scheme: light)" srcset="./assets/emoji-city-light.svg?v=3">
-  <img alt="Kanakoy animated vaporwave city scene with vector ninja" src="./assets/emoji-city-dark.svg?v=3" width="100%">
+  <img alt="Kanakoy animated synthwave night drive game scene with retro sports car" src="./assets/emoji-city-dark.svg?v=3" width="100%">
 </picture>
