@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Kanakoy cyber terminal profile</title>
+  <desc id="desc">Animated dark mode developer profile for Kanakoy, focused on full stack development, automation, AI and cloud infrastructure.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="0.55" stop-color="#0b1118"/>
+      <stop offset="1" stop-color="#071016"/>
+    </linearGradient>
+    <linearGradient id="cyanLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#22d3ee" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="greenLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#39ff88" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#39ff88" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#39ff88" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#1f6f78" stroke-width="0.5" opacity="0.12"/>
+    </pattern>
+    <clipPath id="type1"><rect x="80" y="111" width="0" height="24"><animate attributeName="width" values="0;480;480" keyTimes="0;0.55;1" dur="5s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="type2"><rect x="82" y="450" width="0" height="22"><animate attributeName="width" values="0;520;520" keyTimes="0;0.7;1" begin="1.2s" dur="6s" repeatCount="indefinite"/></rect></clipPath>
+  </defs>
+
+  <rect width="1200" height="680" rx="20" fill="url(#bg)"/>
+  <rect width="1200" height="680" rx="20" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1198" height="678" rx="19" fill="none" stroke="#1f2937"/>
+
+  <circle cx="1090" cy="86" r="120" fill="#0ea5e9" opacity="0.035" filter="url(#soft)">
+    <animate attributeName="opacity" values="0.02;0.06;0.02" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="188" cy="520" r="140" fill="#22c55e" opacity="0.025" filter="url(#soft)">
+    <animate attributeName="opacity" values="0.015;0.05;0.015" dur="11s" repeatCount="indefinite"/>
+  </circle>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <circle cx="43" cy="38" r="5" fill="#ff5f57"/>
+    <circle cx="61" cy="38" r="5" fill="#febc2e"/>
+    <circle cx="79" cy="38" r="5" fill="#28c840"/>
+    <text x="103" y="43" font-size="14" fill="#8b949e">kanakoy@github: ~/profile</text>
+    <text x="1085" y="43" font-size="12" fill="#39ff88">SECURE SESSION</text>
+    <circle cx="1068" cy="38" r="4" fill="#39ff88" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <rect x="34" y="62" width="1132" height="1" fill="url(#cyanLine)" opacity="0.6"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="80" y="100" font-size="15" fill="#39ff88">root@kanakoy:~$</text>
+    <text x="223" y="100" font-size="15" fill="#e6edf3"> ./initialize-profile</text>
+    <text x="80" y="130" font-size="16" fill="#7ee787" clip-path="url(#type1)">&gt; identity loaded :: systems / automation / ai / cloud</text>
+    <rect x="574" y="115" width="9" height="18" fill="#39ff88">
+      <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <text x="80" y="194" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" letter-spacing="5" fill="#f0f6fc">KANAKOY</text>
+  <text x="82" y="225" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" letter-spacing="1.2" fill="#22d3ee">FULL STACK DEVELOPER  //  AUTOMATION ENGINEER  //  AI INTEGRATION</text>
+  <text x="82" y="252" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#8b949e">building business systems since 2019</text>
+
+  <g transform="translate(80 292)">
+    <rect width="646" height="135" rx="12" fill="#0b131b" stroke="#24414b"/>
+    <rect x="1" y="1" width="644" height="133" rx="11" fill="none" stroke="#22d3ee" stroke-opacity="0.16"/>
+    <text x="24" y="28" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#22d3ee">ACTIVE_MODULES</text>
+
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+      <text x="24" y="60" fill="#7ee787">[+] FULL_STACK</text>
+      <text x="176" y="60" fill="#c9d1d9">Next.js / Node.js / TypeScript</text>
+      <text x="24" y="84" fill="#7ee787">[+] AUTOMATION</text>
+      <text x="176" y="84" fill="#c9d1d9">n8n / Webhooks / API Orchestration</text>
+      <text x="24" y="108" fill="#7ee787">[+] AI_SYSTEMS</text>
+      <text x="176" y="108" fill="#c9d1d9">Agents / Assistants / Integrations</text>
+    </g>
+    <rect x="24" y="120" width="595" height="2" fill="#16323a"/>
+    <rect x="24" y="120" width="0" height="2" fill="url(#greenLine)" filter="url(#glow)">
+      <animate attributeName="width" values="0;595;0" dur="5.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <g transform="translate(754 154)">
+    <rect width="366" height="273" rx="12" fill="#0a1219" stroke="#24414b"/>
+    <text x="22" y="31" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#22d3ee">SYSTEM_STATUS</text>
+    <circle cx="330" cy="26" r="5" fill="#39ff88" filter="url(#glow)">
+      <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="22" y="69" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">USER</text>
+    <text x="135" y="69" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Kanakoy</text>
+    <text x="22" y="98" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">MODE</text>
+    <text x="135" y="98" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7ee787">OPERATIONAL</text>
+    <text x="22" y="127" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">BACKEND</text>
+    <text x="135" y="127" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Node.js</text>
+    <text x="22" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">FRONTEND</text>
+    <text x="135" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Next.js / React</text>
+    <text x="22" y="185" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">AUTOMATION</text>
+    <text x="135" y="185" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">n8n</text>
+    <text x="22" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">CLOUD</text>
+    <text x="135" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Cloudflare / Linux</text>
+    <text x="22" y="243" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">STATUS</text>
+    <text x="135" y="243" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#39ff88">ONLINE_</text>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="82" y="468" font-size="14" fill="#7ee787" clip-path="url(#type2)">&gt; scanning stack... dependencies verified... environment stable.</text>
+  </g>
+
+  <g transform="translate(80 500)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <g>
+      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="18" y="24" font-size="11" fill="#8b949e">STACK</text>
+      <text x="18" y="43" font-size="13" fill="#22d3ee">TYPESCRIPT</text>
+    </g>
+    <g transform="translate(158 0)">
+      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="18" y="24" font-size="11" fill="#8b949e">RUNTIME</text>
+      <text x="18" y="43" font-size="13" fill="#22d3ee">NODE.JS</text>
+    </g>
+    <g transform="translate(316 0)">
+      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="18" y="24" font-size="11" fill="#8b949e">AUTOMATION</text>
+      <text x="18" y="43" font-size="13" fill="#22d3ee">N8N</text>
+    </g>
+    <g transform="translate(474 0)">
+      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="18" y="24" font-size="11" fill="#8b949e">CLOUD</text>
+      <text x="18" y="43" font-size="13" fill="#22d3ee">CLOUDFLARE</text>
+    </g>
+    <g transform="translate(632 0)">
+      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="18" y="24" font-size="11" fill="#8b949e">DATA</text>
+      <text x="18" y="43" font-size="13" fill="#22d3ee">SQL / PRISMA</text>
+    </g>
+    <g transform="translate(790 0)">
+      <rect width="250" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="18" y="24" font-size="11" fill="#8b949e">BUSINESS_SYSTEMS</text>
+      <text x="18" y="43" font-size="13" fill="#22d3ee">ECOMMERCE / API / AI</text>
+    </g>
+  </g>
+
+  <g transform="translate(80 600)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="0" y="0" font-size="12" fill="#8b949e">connection</text>
+    <text x="94" y="0" font-size="12" fill="#39ff88">ENCRYPTED</text>
+    <text x="224" y="0" font-size="12" fill="#8b949e">//</text>
+    <text x="253" y="0" font-size="12" fill="#8b949e">focus</text>
+    <text x="304" y="0" font-size="12" fill="#f0f6fc">BUILD • AUTOMATE • SCALE</text>
+    <text x="764" y="0" font-size="12" fill="#8b949e">github.com/Kanakoy-Yokanak</text>
+  </g>
+
+  <rect x="80" y="635" width="1040" height="1" fill="url(#cyanLine)" opacity="0.35"/>
+  <rect x="80" y="635" width="160" height="1" fill="#22d3ee" filter="url(#glow)">
+    <animate attributeName="x" values="80;960;80" dur="9s" repeatCount="indefinite"/>
+  </rect>
+
+  <g opacity="0.22">
+    <rect x="0" y="0" width="1200" height="2" fill="#22d3ee">
+      <animate attributeName="y" values="70;610;70" dur="13s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.28;0" dur="13s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>
