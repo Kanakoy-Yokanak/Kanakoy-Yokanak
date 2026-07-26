@@ -5,7 +5,7 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/emoji-city-dark.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/emoji-city-light.svg?v=3">
-  <img alt="Kanakoy animated synthwave night drive game scene with retro sports car" src="./assets/emoji-city-dark.svg?v=3" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/emoji-city-dark.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/emoji-city-light.svg?v=4">
+  <img alt="Kanakoy animated R34 synthwave night run with changing environments" src="./assets/emoji-city-dark.svg?v=4" width="100%">
 </picture>
