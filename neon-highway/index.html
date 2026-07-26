@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#020208">
+  <meta name="description" content="Kanakoy Neon Highway — a pure-code procedural WebGL2 night drive.">
+  <title>KANAKOY // NEON HIGHWAY</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <canvas id="scene" aria-label="Procedural neon highway WebGL experience"></canvas>
+  <div id="fallback" hidden><strong>WEBGL2 UNAVAILABLE</strong><span>Esta experiência requer um navegador com WebGL2.</span></div>
+  <header><span>KANAKOY</span><i></i><small>NEON HIGHWAY / PROCEDURAL NIGHT RUN</small></header>
+  <section id="controls" aria-label="Controles de renderização">
+    <div class="presets" role="group" aria-label="Resolução">
+      <button data-preset="performance">PERFORMANCE</button><button data-preset="high" class="active">HIGH</button><button data-preset="4k">4K</button><button data-preset="8k">8K ULTRA</button>
+    </div>
+    <div class="actions"><button id="pause">PAUSE</button><button id="debug-toggle">DEBUG</button><button id="fullscreen">FULLSCREEN</button></div>
+  </section>
+  <pre id="debug" hidden></pre>
+  <div id="status">INITIALIZING PROCEDURAL WORLD</div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
