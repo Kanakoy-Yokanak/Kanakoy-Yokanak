@@ -5,7 +5,7 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/emoji-city-dark.svg?v=1">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/emoji-city-light.svg?v=1">
-  <img alt="Kanakoy animated emoji city scene" src="./assets/emoji-city-dark.svg?v=1" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/emoji-city-dark.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/emoji-city-light.svg?v=2">
+  <img alt="Kanakoy animated vaporwave city scene with vector ninja" src="./assets/emoji-city-dark.svg?v=2" width="100%">
 </picture>
