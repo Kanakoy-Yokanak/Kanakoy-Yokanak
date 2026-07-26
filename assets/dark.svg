@@ -1,170 +1,258 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Kanakoy cyber terminal profile</title>
-  <desc id="desc">Animated dark mode developer profile for Kanakoy, focused on full stack development, automation, AI and cloud infrastructure.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Kanakoy cyber biometric developer profile</title>
+  <desc id="desc">Animated terminal profile with ASCII biometric portrait, full stack development, automation, AI, cloud and e-commerce systems.</desc>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0d1117"/>
-      <stop offset="0.55" stop-color="#0b1118"/>
-      <stop offset="1" stop-color="#071016"/>
+      <stop offset="0.55" stop-color="#080e14"/>
+      <stop offset="1" stop-color="#050b10"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b141b"/>
+      <stop offset="1" stop-color="#071017"/>
     </linearGradient>
     <linearGradient id="cyanLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.15"/>
-      <stop offset="0.5" stop-color="#22d3ee" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0.15"/>
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#22d3ee" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="scanBeam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="0.42" stop-color="#22d3ee" stop-opacity="0.05"/>
+      <stop offset="0.5" stop-color="#67e8f9" stop-opacity="0.7"/>
+      <stop offset="0.58" stop-color="#22d3ee" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="greenLine" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#39ff88" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#39ff88" stop-opacity="0.75"/>
+      <stop offset="0.5" stop-color="#39ff88" stop-opacity="0.8"/>
       <stop offset="1" stop-color="#39ff88" stop-opacity="0"/>
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="10"/>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
     </filter>
     <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#1f6f78" stroke-width="0.5" opacity="0.12"/>
+      <path d="M28 0H0V28" fill="none" stroke="#1f6f78" stroke-width="0.55" opacity="0.11"/>
     </pattern>
-    <clipPath id="type1"><rect x="80" y="111" width="0" height="24"><animate attributeName="width" values="0;480;480" keyTimes="0;0.55;1" dur="5s" repeatCount="indefinite"/></rect></clipPath>
-    <clipPath id="type2"><rect x="82" y="450" width="0" height="22"><animate attributeName="width" values="0;520;520" keyTimes="0;0.7;1" begin="1.2s" dur="6s" repeatCount="indefinite"/></rect></clipPath>
+    <pattern id="microGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M8 0H0V8" fill="none" stroke="#22d3ee" stroke-width="0.25" opacity="0.08"/>
+    </pattern>
+
+    <clipPath id="typeIdentity">
+      <rect x="80" y="124" width="0" height="24">
+        <animate attributeName="width" values="0;560;560" keyTimes="0;0.55;1" dur="5.5s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="typeLog1">
+      <rect x="106" y="536" width="0" height="18">
+        <animate attributeName="width" values="0;470;470" keyTimes="0;0.55;1" begin="0.8s" dur="6s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="typeLog2">
+      <rect x="106" y="562" width="0" height="18">
+        <animate attributeName="width" values="0;520;520" keyTimes="0;0.65;1" begin="1.8s" dur="7s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+
+    <clipPath id="bioReveal">
+      <rect x="775" y="154" width="340" height="0">
+        <animate attributeName="height" values="0;318;318;0" keyTimes="0;0.2;0.92;1" dur="10s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+
+    <clipPath id="bioWindow">
+      <rect x="775" y="154" width="340" height="318" rx="8"/>
+    </clipPath>
   </defs>
 
-  <rect width="1200" height="680" rx="20" fill="url(#bg)"/>
-  <rect width="1200" height="680" rx="20" fill="url(#grid)"/>
-  <rect x="1" y="1" width="1198" height="678" rx="19" fill="none" stroke="#1f2937"/>
+  <rect width="1200" height="760" rx="20" fill="url(#bg)"/>
+  <rect width="1200" height="760" rx="20" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1198" height="758" rx="19" fill="none" stroke="#1f2937"/>
 
-  <circle cx="1090" cy="86" r="120" fill="#0ea5e9" opacity="0.035" filter="url(#soft)">
-    <animate attributeName="opacity" values="0.02;0.06;0.02" dur="8s" repeatCount="indefinite"/>
+  <circle cx="1090" cy="95" r="150" fill="#0ea5e9" opacity="0.035" filter="url(#soft)">
+    <animate attributeName="opacity" values="0.02;0.065;0.02" dur="9s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="188" cy="520" r="140" fill="#22c55e" opacity="0.025" filter="url(#soft)">
-    <animate attributeName="opacity" values="0.015;0.05;0.015" dur="11s" repeatCount="indefinite"/>
+  <circle cx="180" cy="610" r="170" fill="#22c55e" opacity="0.025" filter="url(#soft)">
+    <animate attributeName="opacity" values="0.015;0.05;0.015" dur="12s" repeatCount="indefinite"/>
   </circle>
 
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
     <circle cx="43" cy="38" r="5" fill="#ff5f57"/>
     <circle cx="61" cy="38" r="5" fill="#febc2e"/>
     <circle cx="79" cy="38" r="5" fill="#28c840"/>
-    <text x="103" y="43" font-size="14" fill="#8b949e">kanakoy@github: ~/profile</text>
-    <text x="1085" y="43" font-size="12" fill="#39ff88">SECURE SESSION</text>
-    <circle cx="1068" cy="38" r="4" fill="#39ff88" filter="url(#glow)">
+    <text x="103" y="43" font-size="14" fill="#8b949e">kanakoy@github: ~/identity</text>
+
+    <circle cx="1039" cy="38" r="4" fill="#39ff88" filter="url(#glow)">
       <animate attributeName="opacity" values="0.35;1;0.35" dur="1.8s" repeatCount="indefinite"/>
     </circle>
+    <text x="1053" y="43" font-size="12" fill="#39ff88">SECURE SESSION</text>
   </g>
 
-  <rect x="34" y="62" width="1132" height="1" fill="url(#cyanLine)" opacity="0.6"/>
+  <rect x="34" y="62" width="1132" height="1" fill="url(#cyanLine)" opacity="0.65"/>
 
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="80" y="100" font-size="15" fill="#39ff88">root@kanakoy:~$</text>
-    <text x="223" y="100" font-size="15" fill="#e6edf3"> ./initialize-profile</text>
-    <text x="80" y="130" font-size="16" fill="#7ee787" clip-path="url(#type1)">&gt; identity loaded :: systems / automation / ai / cloud</text>
-    <rect x="574" y="115" width="9" height="18" fill="#39ff88">
+    <text x="80" y="103" font-size="15" fill="#39ff88">root@kanakoy:~$</text>
+    <text x="223" y="103" font-size="15" fill="#e6edf3"> ./decode-profile --visual</text>
+    <text x="80" y="142" font-size="15" fill="#7ee787" clip-path="url(#typeIdentity)">&gt; identity stream online :: systems / automation / ai / cloud / commerce</text>
+    <rect x="637" y="128" width="9" height="18" fill="#39ff88">
       <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>
     </rect>
   </g>
 
-  <text x="80" y="194" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" letter-spacing="5" fill="#f0f6fc">KANAKOY</text>
-  <text x="82" y="225" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" letter-spacing="1.2" fill="#22d3ee">FULL STACK DEVELOPER  //  AUTOMATION ENGINEER  //  AI INTEGRATION</text>
-  <text x="82" y="252" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#8b949e">building business systems since 2019</text>
+  <text x="80" y="215" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="5" fill="#f0f6fc">KANAKOY</text>
+  <text x="82" y="247" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" letter-spacing="1.15" fill="#22d3ee">FULL STACK // AUTOMATION // AI INTEGRATION // CLOUD SYSTEMS</text>
+  <text x="82" y="274" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#8b949e">professional technology work since 2019 • business-driven engineering</text>
 
-  <g transform="translate(80 292)">
-    <rect width="646" height="135" rx="12" fill="#0b131b" stroke="#24414b"/>
-    <rect x="1" y="1" width="644" height="133" rx="11" fill="none" stroke="#22d3ee" stroke-opacity="0.16"/>
-    <text x="24" y="28" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#22d3ee">ACTIVE_MODULES</text>
+  <g transform="translate(80 307)">
+    <rect width="630" height="170" rx="12" fill="url(#panel)" stroke="#24414b"/>
+    <rect x="1" y="1" width="628" height="168" rx="11" fill="none" stroke="#22d3ee" stroke-opacity="0.16"/>
+    <text x="24" y="30" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#22d3ee">ACTIVE_MODULES</text>
 
     <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
-      <text x="24" y="60" fill="#7ee787">[+] FULL_STACK</text>
-      <text x="176" y="60" fill="#c9d1d9">Next.js / Node.js / TypeScript</text>
-      <text x="24" y="84" fill="#7ee787">[+] AUTOMATION</text>
-      <text x="176" y="84" fill="#c9d1d9">n8n / Webhooks / API Orchestration</text>
-      <text x="24" y="108" fill="#7ee787">[+] AI_SYSTEMS</text>
-      <text x="176" y="108" fill="#c9d1d9">Agents / Assistants / Integrations</text>
+      <text x="24" y="66" fill="#7ee787">[+] FULL_STACK</text>
+      <text x="178" y="66" fill="#c9d1d9">Next.js / Node.js / TypeScript / React</text>
+
+      <text x="24" y="92" fill="#7ee787">[+] AUTOMATION</text>
+      <text x="178" y="92" fill="#c9d1d9">n8n / Webhooks / API Orchestration</text>
+
+      <text x="24" y="118" fill="#7ee787">[+] AI_SYSTEMS</text>
+      <text x="178" y="118" fill="#c9d1d9">Agents / Assistants / Integrations</text>
+
+      <text x="24" y="144" fill="#7ee787">[+] BUSINESS</text>
+      <text x="178" y="144" fill="#c9d1d9">E-commerce / Import / Operational Systems</text>
     </g>
-    <rect x="24" y="120" width="595" height="2" fill="#16323a"/>
-    <rect x="24" y="120" width="0" height="2" fill="url(#greenLine)" filter="url(#glow)">
-      <animate attributeName="width" values="0;595;0" dur="5.5s" repeatCount="indefinite"/>
+
+    <rect x="24" y="158" width="582" height="2" fill="#16323a"/>
+    <rect x="24" y="158" width="0" height="2" fill="url(#greenLine)" filter="url(#glow)">
+      <animate attributeName="width" values="0;582;582;0" keyTimes="0;0.45;0.85;1" dur="7s" repeatCount="indefinite"/>
     </rect>
   </g>
 
-  <g transform="translate(754 154)">
-    <rect width="366" height="273" rx="12" fill="#0a1219" stroke="#24414b"/>
-    <text x="22" y="31" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#22d3ee">SYSTEM_STATUS</text>
-    <circle cx="330" cy="26" r="5" fill="#39ff88" filter="url(#glow)">
-      <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+  <g>
+    <rect x="80" y="502" width="630" height="106" rx="12" fill="#071017" stroke="#1f3943"/>
+    <text x="104" y="528" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#22d3ee">LIVE_CONSOLE</text>
+
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+      <text x="106" y="552" fill="#7ee787" clip-path="url(#typeLog1)">&gt; loading production systems... integrations verified.</text>
+      <text x="106" y="578" fill="#8b949e" clip-path="url(#typeLog2)">&gt; objective: build • automate • integrate • scale</text>
+    </g>
+
+    <circle cx="684" cy="527" r="4" fill="#39ff88">
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="1.4s" repeatCount="indefinite"/>
     </circle>
-    <text x="22" y="69" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">USER</text>
-    <text x="135" y="69" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Kanakoy</text>
-    <text x="22" y="98" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">MODE</text>
-    <text x="135" y="98" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7ee787">OPERATIONAL</text>
-    <text x="22" y="127" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">BACKEND</text>
-    <text x="135" y="127" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Node.js</text>
-    <text x="22" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">FRONTEND</text>
-    <text x="135" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Next.js / React</text>
-    <text x="22" y="185" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">AUTOMATION</text>
-    <text x="135" y="185" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">n8n</text>
-    <text x="22" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">CLOUD</text>
-    <text x="135" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f0f6fc">Cloudflare / Linux</text>
-    <text x="22" y="243" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8b949e">STATUS</text>
-    <text x="135" y="243" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#39ff88">ONLINE_</text>
   </g>
 
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="82" y="468" font-size="14" fill="#7ee787" clip-path="url(#type2)">&gt; scanning stack... dependencies verified... environment stable.</text>
+  <g id="biometric">
+    <rect x="748" y="91" width="392" height="517" rx="14" fill="#050c12" stroke="#24414b"/>
+    <rect x="749" y="92" width="390" height="515" rx="13" fill="url(#microGrid)" stroke="#22d3ee" stroke-opacity="0.1"/>
+
+    <text x="774" y="122" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#22d3ee">BIOMETRIC_ASCII_MAP</text>
+    <circle cx="1107" cy="117" r="4" fill="#39ff88" filter="url(#glow)">
+      <animate attributeName="r" values="3.5;5.5;3.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+
+    <rect x="773" y="143" width="344" height="331" rx="9" fill="#02080d" stroke="#1d4854"/>
+
+    <g clip-path="url(#bioReveal)">
+      <image href="ascii-avatar.svg.svg" xlink:href="ascii-avatar.svg.svg" x="785" y="154" width="320" height="300" preserveAspectRatio="xMidYMid meet" opacity="0.98">
+        <animate attributeName="opacity" values="0.35;1;1;0.35" keyTimes="0;0.2;0.92;1" dur="10s" repeatCount="indefinite"/>
+      </image>
+    </g>
+
+    <g clip-path="url(#bioWindow)" opacity="0.25">
+      <rect x="775" y="154" width="340" height="318" fill="url(#microGrid)"/>
+      <rect x="775" y="148" width="340" height="30" fill="url(#scanBeam)">
+        <animate attributeName="y" values="148;438;148" dur="4.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="775" y="154" width="340" height="1.5" fill="#67e8f9" filter="url(#glow)">
+        <animate attributeName="y" values="154;470;154" dur="4.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.15;0.85;0.15" dur="4.2s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <g stroke="#22d3ee" stroke-width="1.5" opacity="0.8">
+      <path d="M773 170V143H800"/>
+      <path d="M1090 143H1117V170"/>
+      <path d="M773 447V474H800"/>
+      <path d="M1090 474H1117V447"/>
+    </g>
+
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+      <text x="775" y="500" font-size="11" fill="#8b949e">IDENTITY</text>
+      <text x="884" y="500" font-size="11" fill="#f0f6fc">KANAKOY</text>
+
+      <text x="775" y="525" font-size="11" fill="#8b949e">SOURCE</text>
+      <text x="884" y="525" font-size="11" fill="#22d3ee">ASCII VECTOR / 220 COL</text>
+
+      <text x="775" y="550" font-size="11" fill="#8b949e">SCAN</text>
+      <text x="884" y="550" font-size="11" fill="#7ee787">COMPLETE</text>
+
+      <text x="775" y="575" font-size="11" fill="#8b949e">STATUS</text>
+      <text x="884" y="575" font-size="11" fill="#39ff88">VERIFIED_</text>
+    </g>
+
+    <rect x="1041" y="493" width="75" height="5" rx="2.5" fill="#16323a"/>
+    <rect x="1041" y="493" width="75" height="5" rx="2.5" fill="#39ff88" filter="url(#glow)">
+      <animate attributeName="width" values="10;75;75;10" keyTimes="0;0.25;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </rect>
   </g>
 
-  <g transform="translate(80 500)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <g transform="translate(80 635)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
     <g>
-      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
-      <text x="18" y="24" font-size="11" fill="#8b949e">STACK</text>
-      <text x="18" y="43" font-size="13" fill="#22d3ee">TYPESCRIPT</text>
+      <rect width="156" height="54" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="17" y="22" font-size="10" fill="#8b949e">STACK</text>
+      <text x="17" y="40" font-size="12" fill="#22d3ee">TYPESCRIPT</text>
     </g>
-    <g transform="translate(158 0)">
-      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
-      <text x="18" y="24" font-size="11" fill="#8b949e">RUNTIME</text>
-      <text x="18" y="43" font-size="13" fill="#22d3ee">NODE.JS</text>
+    <g transform="translate(168 0)">
+      <rect width="156" height="54" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="17" y="22" font-size="10" fill="#8b949e">RUNTIME</text>
+      <text x="17" y="40" font-size="12" fill="#22d3ee">NODE.JS</text>
     </g>
-    <g transform="translate(316 0)">
-      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
-      <text x="18" y="24" font-size="11" fill="#8b949e">AUTOMATION</text>
-      <text x="18" y="43" font-size="13" fill="#22d3ee">N8N</text>
+    <g transform="translate(336 0)">
+      <rect width="156" height="54" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="17" y="22" font-size="10" fill="#8b949e">AUTOMATION</text>
+      <text x="17" y="40" font-size="12" fill="#22d3ee">N8N</text>
     </g>
-    <g transform="translate(474 0)">
-      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
-      <text x="18" y="24" font-size="11" fill="#8b949e">CLOUD</text>
-      <text x="18" y="43" font-size="13" fill="#22d3ee">CLOUDFLARE</text>
+    <g transform="translate(504 0)">
+      <rect width="156" height="54" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="17" y="22" font-size="10" fill="#8b949e">CLOUD</text>
+      <text x="17" y="40" font-size="12" fill="#22d3ee">CLOUDFLARE</text>
     </g>
-    <g transform="translate(632 0)">
-      <rect width="145" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
-      <text x="18" y="24" font-size="11" fill="#8b949e">DATA</text>
-      <text x="18" y="43" font-size="13" fill="#22d3ee">SQL / PRISMA</text>
+    <g transform="translate(672 0)">
+      <rect width="156" height="54" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="17" y="22" font-size="10" fill="#8b949e">DATA</text>
+      <text x="17" y="40" font-size="12" fill="#22d3ee">SQL / PRISMA</text>
     </g>
-    <g transform="translate(790 0)">
-      <rect width="250" height="58" rx="9" fill="#0b131b" stroke="#21424b"/>
-      <text x="18" y="24" font-size="11" fill="#8b949e">BUSINESS_SYSTEMS</text>
-      <text x="18" y="43" font-size="13" fill="#22d3ee">ECOMMERCE / API / AI</text>
+    <g transform="translate(840 0)">
+      <rect width="200" height="54" rx="9" fill="#0b131b" stroke="#21424b"/>
+      <text x="17" y="22" font-size="10" fill="#8b949e">BUSINESS_SYSTEMS</text>
+      <text x="17" y="40" font-size="12" fill="#22d3ee">ECOM / API / AI</text>
     </g>
   </g>
 
-  <g transform="translate(80 600)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="0" y="0" font-size="12" fill="#8b949e">connection</text>
-    <text x="94" y="0" font-size="12" fill="#39ff88">ENCRYPTED</text>
-    <text x="224" y="0" font-size="12" fill="#8b949e">//</text>
-    <text x="253" y="0" font-size="12" fill="#8b949e">focus</text>
-    <text x="304" y="0" font-size="12" fill="#f0f6fc">BUILD • AUTOMATE • SCALE</text>
-    <text x="764" y="0" font-size="12" fill="#8b949e">github.com/Kanakoy-Yokanak</text>
+  <g transform="translate(80 724)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="0" y="0" font-size="11" fill="#8b949e">connection</text>
+    <text x="85" y="0" font-size="11" fill="#39ff88">ENCRYPTED</text>
+    <text x="198" y="0" font-size="11" fill="#8b949e">//</text>
+    <text x="221" y="0" font-size="11" fill="#8b949e">focus</text>
+    <text x="266" y="0" font-size="11" fill="#f0f6fc">BUILD • AUTOMATE • SCALE</text>
+    <text x="805" y="0" font-size="11" fill="#8b949e">github.com/Kanakoy-Yokanak</text>
   </g>
 
-  <rect x="80" y="635" width="1040" height="1" fill="url(#cyanLine)" opacity="0.35"/>
-  <rect x="80" y="635" width="160" height="1" fill="#22d3ee" filter="url(#glow)">
-    <animate attributeName="x" values="80;960;80" dur="9s" repeatCount="indefinite"/>
+  <rect x="80" y="705" width="1040" height="1" fill="url(#cyanLine)" opacity="0.35"/>
+  <rect x="80" y="705" width="150" height="1" fill="#22d3ee" filter="url(#glow)">
+    <animate attributeName="x" values="80;970;80" dur="9s" repeatCount="indefinite"/>
   </rect>
 
-  <g opacity="0.22">
+  <g opacity="0.2">
     <rect x="0" y="0" width="1200" height="2" fill="#22d3ee">
-      <animate attributeName="y" values="70;610;70" dur="13s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.28;0" dur="13s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="70;690;70" dur="14s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.28;0" dur="14s" repeatCount="indefinite"/>
     </rect>
   </g>
 </svg>
