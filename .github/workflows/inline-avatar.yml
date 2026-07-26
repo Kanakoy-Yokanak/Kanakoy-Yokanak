@@ -1,0 +1,35 @@
+name: Inline ASCII avatar
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/ascii-avatar.svg.svg'
+      - 'scripts/inline_avatar.py'
+      - '.github/workflows/inline-avatar.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inline avatar into profile SVGs
+        run: python scripts/inline_avatar.py
+
+      - name: Commit generated SVGs
+        run: |
+          if git diff --quiet -- assets/dark.svg assets/light.svg; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/dark.svg assets/light.svg
+          git commit -m "fix: inline ASCII avatar for GitHub rendering"
+          git push
