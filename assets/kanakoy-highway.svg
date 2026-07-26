@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="7680" height="4320" viewBox="0 0 7680 4320" role="img" aria-labelledby="title desc">
+  <title id="title">Kanakoy Neon Highway</title>
+  <desc id="desc">A code-drawn retro-futurist tropical night drive with a wet highway, original sports coupe, palms, mountains, skyline and a sliced sun.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#010108"/><stop offset=".48" stop-color="#09031b"/><stop offset=".78" stop-color="#26083a"/><stop offset="1" stop-color="#e02675"/></linearGradient>
+    <linearGradient id="road" x2="0" y2="1"><stop stop-color="#191128"/><stop offset=".16" stop-color="#080711"/><stop offset="1" stop-color="#010206"/></linearGradient>
+    <linearGradient id="sun" x2="0" y2="1"><stop stop-color="#fff1ba"/><stop offset=".42" stop-color="#ff9165"/><stop offset="1" stop-color="#ff207e"/></linearGradient>
+    <linearGradient id="body" x2=".8" y2="1"><stop stop-color="#193546"/><stop offset=".15" stop-color="#10111d"/><stop offset=".56" stop-color="#030308"/><stop offset=".82" stop-color="#270b2f"/><stop offset="1" stop-color="#05050b"/></linearGradient>
+    <linearGradient id="glass" x2="0" y2="1"><stop stop-color="#183d50"/><stop offset=".35" stop-color="#07101b"/><stop offset="1" stop-color="#16051e"/></linearGradient>
+    <linearGradient id="tail" x2="1"><stop stop-color="#ffb04c"/><stop offset=".12" stop-color="#ff3a37"/><stop offset=".7" stop-color="#d8003f"/><stop offset="1" stop-color="#4d001b"/></linearGradient>
+    <linearGradient id="reflection" x2="0" y2="1"><stop stop-color="#ff2b62" stop-opacity=".8"/><stop offset="1" stop-color="#ff006e" stop-opacity="0"/></linearGradient>
+    <radialGradient id="haze"><stop stop-color="#ff7798" stop-opacity=".62"/><stop offset=".35" stop-color="#ba1f83" stop-opacity=".2"/><stop offset="1" stop-color="#36066c" stop-opacity="0"/></radialGradient>
+    <radialGradient id="cyan"><stop stop-color="#bfffff"/><stop offset=".12" stop-color="#18e8ff"/><stop offset="1" stop-color="#04a4e8" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="42" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="90"/></filter>
+    <filter id="wet" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence baseFrequency=".006 .055" numOctaves="3" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="75"/></filter>
+    <pattern id="grain" width="260" height="190" patternUnits="userSpaceOnUse"><filter id="noise"><feTurbulence baseFrequency=".7" numOctaves="2" seed="19"/></filter><rect width="260" height="190" filter="url(#noise)" opacity=".07"/></pattern>
+    <clipPath id="sunClip"><circle cx="4840" cy="1900" r="720"/></clipPath>
+    <mask id="sunCuts"><rect width="7680" height="4320" fill="white"/><g fill="black"><rect x="4060" y="1690" width="1560" height="35"/><rect x="4040" y="1815" width="1600" height="48"/><rect x="4010" y="1970" width="1660" height="64"/><rect x="3980" y="2160" width="1720" height="92"/><rect x="3930" y="2390" width="1820" height="130"/></g></mask>
+    <path id="palm" d="M0 0C-28-230-3-484 76-720l40 8C40-456 46-226 58 0zM94-716C-90-850-270-858-420-798c172 7 318 53 493 130C-98-716-250-650-350-532c149-72 283-96 447-115C-5-576-112-470-156-350c115-82 204-143 278-264c-4 148 23 272 77 366c10-148-5-271-51-407c91 91 191 138 310 154c-89-79-172-142-295-199c163 11 298 72 425 164c-101-151-267-242-450-250c146-39 300-27 469 30c-153-125-329-151-513-60z"/>
+  </defs>
+  <rect width="7680" height="4320" fill="url(#sky)"/>
+  <g fill="#aaa9ff" opacity=".42"><circle cx="570" cy="530" r="5"/><circle cx="1180" cy="870" r="4"/><circle cx="1990" cy="340" r="7"/><circle cx="2780" cy="710" r="4"/><circle cx="3650" cy="420" r="5"/><circle cx="5360" cy="570" r="4"/><circle cx="6260" cy="310" r="6"/><circle cx="7100" cy="820" r="4"/></g>
+  <ellipse cx="4700" cy="2070" rx="2600" ry="1150" fill="url(#haze)" filter="url(#soft)"/>
+  <circle cx="4840" cy="1900" r="880" fill="#ff2f84" opacity=".22" filter="url(#soft)"/>
+  <circle cx="4840" cy="1900" r="720" fill="url(#sun)" mask="url(#sunCuts)" filter="url(#glow)"><animate attributeName="opacity" values=".88;1;.88" dur="9s" repeatCount="indefinite"/></circle>
+  <path d="M0 2420L520 2110l390 100 480-390 390 330 430-510 500 480 510-420 400 370 460-500 510 470 460-570 610 590 510-300 430 380 500-320 500 520v430H0z" fill="#070614" opacity=".84"/>
+  <path d="M0 2520l700-280 520 210 610-280 450 310 550-260 610 310 610-340 520 300 650-400 600 380 710-280 700 370v280H0z" fill="#0c0818"/>
+  <g fill="#170b26" stroke="#fe2b8a" stroke-opacity=".18"><path d="M3740 2460v-230h92v230m35 0v-360h120v360m42 0v-190h84v190m51 0v-430h145v430m50 0v-270h104v270m40 0v-510h170v510m50 0v-330h120v330m55 0v-220h88v220m60 0v-390h150v390m55 0v-260h100v260"/></g>
+  <path d="M2870 2380L0 4320h7680L5240 2380z" fill="url(#road)"/>
+  <path d="M2920 2380L720 4320" stroke="#23e8ff" stroke-width="28" opacity=".35" filter="url(#glow)"/><path d="M5190 2380L7280 4320" stroke="#f01b97" stroke-width="25" opacity=".36" filter="url(#glow)"/>
+  <g opacity=".48" filter="url(#wet)"><path d="M4820 2390l-240 1930h840z" fill="url(#reflection)" opacity=".3"/><path d="M3280 2710l-390 1610h520z" fill="#00dfff" opacity=".11"/><path d="M5530 2700l500 1620h-370z" fill="#ff168d" opacity=".12"/></g>
+  <g stroke-linecap="round" opacity=".32"><path d="M3330 2740l-260 510" stroke="#b3fbff" stroke-width="14"/><path d="M4000 2900l-90 850" stroke="#ff347e" stroke-width="18"/><path d="M4890 2740l100 920" stroke="#ff8c67" stroke-width="12"/><path d="M5680 3100l440 900" stroke="#17d8ff" stroke-width="11"/></g>
+  <g fill="#03040a"><use href="#palm" transform="translate(620 3050) scale(1.52) rotate(-7)"/><use href="#palm" transform="translate(1510 2700) scale(.93) rotate(6)"/><use href="#palm" transform="translate(2280 2510) scale(.54) rotate(-5)"/><use href="#palm" transform="translate(6900 3090) scale(1.58) rotate(8)"/><use href="#palm" transform="translate(6220 2760) scale(.91) rotate(-8)"/><use href="#palm" transform="translate(5700 2550) scale(.55) rotate(4)"/></g>
+  <g stroke="#0be8ff" fill="#07101a"><path d="M920 3320l38-790h22l28 790"/><ellipse cx="969" cy="2532" rx="52" ry="18" fill="url(#cyan)" stroke="none"/><path d="M6610 3290l30-720h20l25 720"/><ellipse cx="6650" cy="2573" rx="50" ry="18" fill="url(#cyan)" stroke="none"/></g>
+  <g transform="translate(1030 2730)">
+    <ellipse cx="1950" cy="1370" rx="1860" ry="410" fill="#000" opacity=".86" filter="url(#soft)"/>
+    <path d="M230 850L470 390 1170 120l1170 15 760 315 430 480-170 440-470 180-2160-30-560-270z" fill="url(#body)" stroke="#403052" stroke-width="24"/>
+    <path d="M1110 170l1200 18 520 250-1835-20z" fill="url(#glass)" stroke="#21667a" stroke-width="18"/>
+    <path d="M270 835l650-390 1880 45 610 390-200 118-2630-10z" fill="#11101a" stroke="#802856" stroke-width="18"/>
+    <path d="M360 820l1160-65 1750 100-150 290-2550-34z" fill="#07070c"/>
+    <path d="M530 792l800-42-25 155-820 55zM2140 773l940 52 110 151-1070-71z" fill="url(#tail)" filter="url(#glow)"/>
+    <path d="M1380 762l690 8-18 142-700-8z" fill="#12030a" stroke="#ff365c" stroke-width="12"/>
+    <path d="M650 1110l350 20-40 360-410-65zM2770 1130l360 5-20 335-405 40z" fill="#010104" stroke="#252330" stroke-width="26"/>
+    <path d="M1030 1140l1480 25-140 250-1240-10z" fill="#020207" stroke="#24172c" stroke-width="18"/>
+    <path d="M720 520Q1770 320 2960 590" fill="none" stroke="#1ce7ff" stroke-opacity=".36" stroke-width="22"/>
+    <path d="M1200 1350l-120 970h470l90-960zM2450 1350l30 940h440l-170-930z" fill="url(#reflection)" opacity=".35" filter="url(#wet)"/>
+  </g>
+  <g fill="#bbfaff"><circle cx="352" cy="2350" r="9"/><circle cx="2510" cy="2220" r="7"/><circle cx="5950" cy="2290" r="8"/><circle cx="7180" cy="2440" r="10"/><circle cx="6630" cy="1750" r="5"/></g>
+  <rect width="7680" height="4320" fill="url(#grain)" opacity=".14" style="mix-blend-mode:soft-light"/>
+  <rect x="45" y="45" width="7590" height="4230" rx="80" fill="none" stroke="#50eaff" stroke-opacity=".15" stroke-width="18"/>
+</svg>
