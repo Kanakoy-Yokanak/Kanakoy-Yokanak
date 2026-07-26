@@ -29,11 +29,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Render live contribution calendars
+      - name: Render exact contribution calendars
         env:
           GITHUB_LOGIN: Kanakoy-Yokanak
-          GITHUB_TOKEN: ${{ secrets.CONTRIBUTIONS_TOKEN || github.token }}
-        run: python .github/scripts/render_contributions.py
+          CONTRIBUTIONS_TOKEN: ${{ secrets.CONTRIBUTIONS_TOKEN }}
+        shell: bash
+        run: |
+          if [ -z "$CONTRIBUTIONS_TOKEN" ]; then
+            echo "CONTRIBUTIONS_TOKEN is not configured; keeping the current graph unchanged."
+            exit 0
+          fi
+          python .github/scripts/render_contributions.py
 
       - name: Commit updated calendars
         shell: bash
