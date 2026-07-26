@@ -1,20 +1,40 @@
 #!/usr/bin/env python3
-# Render a GitHub-native-looking contribution calendar from the user's public profile.
-
 from __future__ import annotations
 
 import html
+import json
 import os
-import re
 import sys
 import urllib.request
 from datetime import date, timedelta
-from html.parser import HTMLParser
 from pathlib import Path
 
 LOGIN = os.environ.get("GITHUB_LOGIN", "Kanakoy-Yokanak")
+TOKEN = os.environ.get("CONTRIBUTIONS_TOKEN", "")
 OUT_DIR = Path("assets")
-PUBLIC_URL = f"https://github.com/users/{LOGIN}/contributions"
+GRAPHQL_URL = "https://api.github.com/graphql"
+
+QUERY = r'''
+query($login: String!) {
+  user(login: $login) {
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        months { firstDay name totalWeeks year }
+        weeks {
+          firstDay
+          contributionDays {
+            date
+            weekday
+            contributionCount
+            contributionLevel
+          }
+        }
+      }
+    }
+  }
+}
+'''
 
 THEMES = {
     "dark": {
@@ -31,109 +51,48 @@ THEMES = {
     },
 }
 
+LEVEL_INDEX = {
+    "NONE": 0,
+    "FIRST_QUARTILE": 1,
+    "SECOND_QUARTILE": 2,
+    "THIRD_QUARTILE": 3,
+    "FOURTH_QUARTILE": 4,
+}
+
 WIDTH, HEIGHT = 1200, 265
 GRID_X, GRID_Y = 86, 95
 CELL, PITCH = 11, 14
 
 
-class ContributionParser(HTMLParser):
-    def __init__(self) -> None:
-        super().__init__(convert_charrefs=True)
-        self.days: dict[str, dict] = {}
-        self.day_id_to_date: dict[str, str] = {}
-        self.tooltip_for: str | None = None
-        self.tooltip_text: list[str] = []
-
-    def handle_starttag(self, tag: str, attrs) -> None:
-        data = dict(attrs)
-        if tag == "td":
-            classes = data.get("class", "")
-            if "ContributionCalendar-day" in classes and data.get("data-date"):
-                dt = data["data-date"]
-                level = int(data.get("data-level", "0") or 0)
-                day_id = data.get("id", "")
-                self.days[dt] = {"date": dt, "level": max(0, min(4, level)), "count": 0}
-                if day_id:
-                    self.day_id_to_date[day_id] = dt
-        elif tag == "tool-tip":
-            self.tooltip_for = data.get("for")
-            self.tooltip_text = []
-
-    def handle_data(self, data: str) -> None:
-        if self.tooltip_for:
-            self.tooltip_text.append(data)
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag != "tool-tip" or not self.tooltip_for:
-            return
-        dt = self.day_id_to_date.get(self.tooltip_for)
-        if dt and dt in self.days:
-            text = " ".join("".join(self.tooltip_text).split())
-            m = re.search(r"\b(\d[\d,]*)\s+contribution", text, re.I)
-            if m:
-                self.days[dt]["count"] = int(m.group(1).replace(",", ""))
-            elif re.search(r"\bNo\s+contributions?\b", text, re.I):
-                self.days[dt]["count"] = 0
-        self.tooltip_for = None
-        self.tooltip_text = []
-
-
-def fetch_public_calendar() -> dict:
+def fetch_calendar() -> dict:
+    if not TOKEN:
+        raise RuntimeError(
+            "CONTRIBUTIONS_TOKEN is required so the graph can include the same private/restricted contribution counts visible to the account owner."
+        )
+    body = json.dumps({"query": QUERY, "variables": {"login": LOGIN}}).encode()
     req = urllib.request.Request(
-        PUBLIC_URL,
+        GRAPHQL_URL,
+        data=body,
         headers={
-            "User-Agent": "Mozilla/5.0 kanakoy-profile-contribution-renderer",
-            "Accept": "text/html,application/xhtml+xml",
+            "Authorization": f"Bearer {TOKEN}",
+            "Content-Type": "application/json",
+            "User-Agent": "kanakoy-profile-contribution-renderer",
         },
+        method="POST",
     )
     with urllib.request.urlopen(req, timeout=30) as response:
-        source = response.read().decode("utf-8", errors="replace")
-
-    parser = ContributionParser()
-    parser.feed(source)
-    if not parser.days:
-        raise RuntimeError("GitHub contribution table was not found in the public profile response")
-
-    total_match = re.search(
-        r"([\d,]+)\s+contributions?\s+in\s+the\s+last\s+year",
-        source,
-        re.I | re.S,
-    )
-    total = int(total_match.group(1).replace(",", "")) if total_match else sum(
-        day["count"] for day in parser.days.values()
-    )
-
-    dates = sorted(date.fromisoformat(value) for value in parser.days)
-    first, last = dates[0], dates[-1]
-    grid_start = first - timedelta(days=(first.weekday() + 1) % 7)
-    grid_end = last + timedelta(days=(6 - ((last.weekday() + 1) % 7)))
-    week_count = ((grid_end - grid_start).days // 7) + 1
-
-    weeks = []
-    for col in range(week_count):
-        sunday = grid_start + timedelta(days=col * 7)
-        week_days = []
-        for row in range(7):
-            dt = sunday + timedelta(days=row)
-            item = parser.days.get(dt.isoformat(), {"date": dt.isoformat(), "level": 0, "count": 0})
-            week_days.append({**item, "weekday": row})
-        weeks.append({"firstDay": sunday.isoformat(), "contributionDays": week_days})
-
-    months = []
-    seen = set()
-    for dt in dates:
-        key = (dt.year, dt.month)
-        if key in seen:
-            continue
-        seen.add(key)
-        months.append({"name": dt.strftime("%b"), "firstDay": date(dt.year, dt.month, 1).isoformat()})
-
-    return {"totalContributions": total, "weeks": weeks, "months": months, "lastDate": last.isoformat()}
+        payload = json.loads(response.read().decode("utf-8"))
+    if payload.get("errors"):
+        raise RuntimeError(str(payload["errors"]))
+    user = payload.get("data", {}).get("user")
+    if not user:
+        raise RuntimeError(f"GitHub user not found: {LOGIN}")
+    return user["contributionsCollection"]["contributionCalendar"]
 
 
 def month_positions(calendar: dict) -> list[tuple[str, int]]:
     weeks = calendar["weeks"]
-    out: list[tuple[str, int]] = []
+    out = []
     last_x = -999
     for month in calendar["months"]:
         target = date.fromisoformat(month["firstDay"])
@@ -148,7 +107,7 @@ def month_positions(calendar: dict) -> list[tuple[str, int]]:
                 break
         x = GRID_X + idx * PITCH
         if x - last_x >= 38:
-            out.append((month["name"], x))
+            out.append((month["name"][:3], x))
             last_x = x
     return out
 
@@ -156,20 +115,25 @@ def month_positions(calendar: dict) -> list[tuple[str, int]]:
 def render(calendar: dict, theme_name: str) -> str:
     t = THEMES[theme_name]
     weeks = calendar["weeks"]
-    total = calendar["totalContributions"]
-    year = date.fromisoformat(calendar["lastDate"]).year
+    total = int(calendar["totalContributions"])
+    last_day = max(
+        date.fromisoformat(day["date"])
+        for week in weeks
+        for day in week["contributionDays"]
+    )
+    year = last_day.year
 
     cells = []
     for col, week in enumerate(weeks):
         for day in week["contributionDays"]:
             x = GRID_X + col * PITCH
             y = GRID_Y + int(day["weekday"]) * PITCH
-            level = max(0, min(4, int(day["level"])))
-            count = int(day["count"])
+            level = LEVEL_INDEX.get(day["contributionLevel"], 0)
+            count = int(day["contributionCount"])
             label = f'{count} contribution{"s" if count != 1 else ""} on {day["date"]}'
             cells.append(
-                f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2" fill="{t["levels"][level]}" '
-                f'data-date="{day["date"]}" data-level="{level}" data-count="{count}">'
+                f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2" '
+                f'fill="{t["levels"][level]}" data-date="{day["date"]}" data-level="{level}" data-count="{count}">'
                 f'<title>{html.escape(label)}</title></rect>'
             )
 
@@ -180,7 +144,7 @@ def render(calendar: dict, theme_name: str) -> str:
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-labelledby="title desc">
 <title id="title">{total:,} contributions in the last year</title>
-<desc id="desc">Live public GitHub contribution calendar for {html.escape(LOGIN)}.</desc>
+<desc id="desc">Automatically generated GitHub contribution calendar for {html.escape(LOGIN)}.</desc>
 <style>
 text{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}}
 .title{{fill:{t["text"]};font-size:19px;font-weight:400}}
@@ -212,7 +176,7 @@ text{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sa
 
 
 def main() -> int:
-    calendar = fetch_public_calendar()
+    calendar = fetch_calendar()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for theme in THEMES:
         path = OUT_DIR / f"contributions-{theme}.svg"
