@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">Kanakoy animated emoji city scene</title>
+  <desc id="desc">Animated clouds, sun, airplane, city buildings, road, police cars and ninja in a terminal-styled scene.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f8fa"/></linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101820"/><stop offset="1" stop-color="#05090d"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#087f9c" stop-opacity="0"/><stop offset=".5" stop-color="#087f9c"/><stop offset="1" stop-color="#087f9c" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#0e7490" stroke-width=".5" opacity=".1"/></pattern>
+    <clipPath id="scene"><rect x="22" y="50" width="1156" height="258" rx="14"/></clipPath>
+  </defs>
+  <rect width="1200" height="330" rx="20" fill="url(#bg)"/>
+  <rect width="1200" height="330" rx="20" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1198" height="328" rx="19" fill="none" stroke="#d0d7de"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <circle cx="42" cy="28" r="5" fill="#ff5f57"/><circle cx="60" cy="28" r="5" fill="#febc2e"/><circle cx="78" cy="28" r="5" fill="#28c840"/>
+    <text x="100" y="33" font-size="13" fill="#57606a">kanakoy@github: ~/emoji-city</text>
+    <text x="980" y="33" font-size="11" fill="#15803d">ANIMATION ONLINE</text>
+  </g>
+  <rect x="24" y="49" width="1152" height="1" fill="url(#cyan)" opacity=".8"/>
+  <g clip-path="url(#scene)" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">
+    <g font-size="28" opacity=".95">
+      <g transform="translate(-80 0)"><text x="70" y="86">☁️</text><text x="300" y="72">☁️</text><text x="690" y="82">☁️</text><text x="1020" y="68">☁️</text><animateTransform attributeName="transform" type="translate" values="-80 0;100 0;-80 0" dur="18s" repeatCount="indefinite"/></g>
+      <g transform="translate(60 0)" opacity=".75"><text x="150" y="112">☁️</text><text x="520" y="106">☁️</text><text x="880" y="115">☁️</text><animateTransform attributeName="transform" type="translate" values="60 0;-120 0;60 0" dur="23s" repeatCount="indefinite"/></g>
+    </g>
+    <g transform="translate(350 100)" transform-origin="0 0"><text x="0" y="0" font-size="30">🌞</text><animateTransform attributeName="transform" additive="sum" type="rotate" values="-4 15 -12;4 15 -12;-4 15 -12" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;1;.8" dur="2.8s" repeatCount="indefinite"/></g>
+    <g transform="translate(455 100)"><text x="0" y="0" font-size="30">✈️</text><animateMotion path="M0 0 C150 -35 320 25 520 -20" dur="8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="8s" repeatCount="indefinite"/></g>
+    <g font-size="34" transform="translate(260 152)">
+      <text x="0" y="0">🏢</text><text x="58" y="0">🏨</text><text x="116" y="0">🌴</text><text x="174" y="0">🏘️</text><text x="242" y="0">🏩</text><text x="304" y="0">💒</text><text x="366" y="0">🌴</text>
+      <animateTransform attributeName="transform" type="translate" values="260 152;260 149;260 152" dur="4s" repeatCount="indefinite"/>
+    </g>
+    <path d="M470 166 L310 308 L890 308 L730 166 Z" fill="url(#road)" stroke="#087f9c" stroke-opacity=".25"/>
+    <path d="M470 166 L310 308" stroke="#1f2328" stroke-width="2" opacity=".75"/>
+    <path d="M730 166 L890 308" stroke="#1f2328" stroke-width="2" opacity=".75"/>
+    <path d="M600 170 L600 308" stroke="#1f2328" stroke-width="3" stroke-dasharray="14 18" opacity=".75"><animate attributeName="stroke-dashoffset" values="0;-64" dur="1.5s" repeatCount="indefinite"/></path>
+    <g font-size="30">
+      <g transform="translate(500 197)"><text>🚓</text><animateTransform attributeName="transform" type="translate" values="500 197;482 215;500 197" dur="3.2s" repeatCount="indefinite"/></g>
+      <g transform="translate(660 197)"><text>🚓</text><animateTransform attributeName="transform" type="translate" values="660 197;678 215;660 197" dur="3.6s" repeatCount="indefinite"/></g>
+      <g transform="translate(452 238)"><text>🚓</text><animateTransform attributeName="transform" type="translate" values="452 238;425 265;452 238" dur="3.7s" repeatCount="indefinite"/></g>
+      <g transform="translate(708 238)"><text>🚓</text><animateTransform attributeName="transform" type="translate" values="708 238;735 265;708 238" dur="4s" repeatCount="indefinite"/></g>
+      <g transform="translate(410 277)"><text>🚓</text><animateTransform attributeName="transform" type="translate" values="410 277;370 304;410 277" dur="4.2s" repeatCount="indefinite"/></g>
+      <g transform="translate(750 277)"><text>🚓</text><animateTransform attributeName="transform" type="translate" values="750 277;790 304;750 277" dur="4.5s" repeatCount="indefinite"/></g>
+    </g>
+    <g transform="translate(580 252)"><text x="0" y="0" font-size="36">🥷</text><animateTransform attributeName="transform" type="translate" values="580 252;580 246;580 252" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;1;.8" dur="1.6s" repeatCount="indefinite"/></g>
+    <g transform="translate(335 210)"><text font-size="34">🌴</text><animateTransform attributeName="transform" type="rotate" values="-2 18 -20;2 18 -20;-2 18 -20" dur="4s" repeatCount="indefinite"/></g>
+  </g>
+</svg>
