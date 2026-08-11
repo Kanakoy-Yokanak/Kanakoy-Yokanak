@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+<title id="title">Kanakoy technical profile</title>
+<desc id="desc">Technical profile focused on current products, full stack engineering, automation, cloud, realtime systems, data and production delivery.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061019"/><stop offset="1" stop-color="#0a1620"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#39ff88"/></linearGradient>
+  <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee" stop-opacity="0"/><stop offset=".5" stop-color="#22d3ee" stop-opacity=".32"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></linearGradient>
+  <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" fill="none" stroke="#22d3ee" stroke-width=".55" opacity=".07"/></pattern>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .muted{fill:#8193a5}.white{fill:#f0f6fc}.cyan{fill:#22d3ee}.green{fill:#39ff88}
+  .section{font-size:28px;font-weight:700;letter-spacing:2px;fill:#f0f6fc}
+  .kicker{font-size:11px;font-weight:700;letter-spacing:1.6px;fill:#22d3ee}
+  .title{font-size:18px;font-weight:700;fill:#f0f6fc}
+  .body{font-size:12px;fill:#a9bac8}.tiny{font-size:10px;fill:#8193a5}
+  .card{fill:#08141d;stroke:#22d3ee44;stroke-width:1.2}
+  .chip{fill:#0b1a24;stroke:#22d3ee55;stroke-width:1}
+</style>
+<rect width="1200" height="1500" rx="22" fill="url(#bg)"/>
+<rect width="1200" height="1500" rx="22" fill="url(#grid)"/>
+<rect x="1" y="1" width="1198" height="1498" rx="21" fill="none" stroke="url(#accent)" stroke-opacity=".55"/>
+
+<circle cx="34" cy="32" r="5" fill="#ff5f57"/><circle cx="52" cy="32" r="5" fill="#febc2e"/><circle cx="70" cy="32" r="5" fill="#28c840"/>
+<text x="92" y="37" class="tiny">kanakoy@github: ~/profile</text>
+<text x="1164" y="37" text-anchor="end" class="tiny">BUILD // SHIP // OPERATE</text>
+
+<text x="58" y="116" font-family="Arial,Helvetica,sans-serif" font-size="64" font-weight="800" letter-spacing="5" fill="#f0f6fc">KANAKOY</text>
+<text x="60" y="154" font-size="15" font-weight="700" letter-spacing="1.8" class="cyan">FULL STACK ENGINEERING // AUTOMATION // CLOUD // REAL-TIME</text>
+<text x="60" y="184" font-size="12" class="muted">Building products, infrastructure and operational systems since 2019.</text>
+<path d="M60 214H1140" stroke="#22d3ee55"/>
+
+<g transform="translate(60 240)">
+  <rect width="188" height="34" rx="17" class="chip"/><text x="94" y="22" text-anchor="middle" font-size="10.5" class="white">NEXT.JS / REACT</text>
+  <rect x="202" width="188" height="34" rx="17" class="chip"/><text x="296" y="22" text-anchor="middle" font-size="10.5" class="white">TYPESCRIPT / NODE</text>
+  <rect x="404" width="188" height="34" rx="17" class="chip"/><text x="498" y="22" text-anchor="middle" font-size="10.5" class="white">CLOUDFLARE / EDGE</text>
+  <rect x="606" width="188" height="34" rx="17" class="chip"/><text x="700" y="22" text-anchor="middle" font-size="10.5" class="white">N8N / APIS</text>
+  <rect x="808" width="272" height="34" rx="17" class="chip"/><text x="944" y="22" text-anchor="middle" font-size="10.5" class="white">GITHUB FIRST / CI-CD</text>
+</g>
+
+<text x="60" y="338" class="section">CURRENT BUILDS</text>
+<text x="60" y="364" class="kicker">ACTIVE PRODUCT SYSTEMS // CURRENT REPOSITORY WORK</text>
+
+<rect x="60" y="394" width="520" height="154" rx="16" class="card"/>
+<text x="84" y="424" class="kicker">01 // WAHZZA</text>
+<text x="84" y="456" class="title">Open Creation Engine</text>
+<text x="84" y="486" class="body">SaaS architecture, integrations, production workflows</text>
+<text x="84" y="510" class="body">and modular systems designed for real business delivery.</text>
+<circle cx="548" cy="424" r="6" fill="#39ff88" filter="url(#glow)"/>
+
+<rect x="600" y="394" width="540" height="154" rx="16" class="card"/>
+<text x="624" y="424" class="kicker">02 // WAHZZA-DJ</text>
+<text x="624" y="456" class="title">Persistent social music world</text>
+<text x="624" y="486" class="body">Realtime 3D rooms, DJ systems, progression, room builder</text>
+<text x="624" y="510" class="body">and a local Asset Forge pipeline for game-ready content.</text>
+<circle cx="1108" cy="424" r="6" fill="#39ff88" filter="url(#glow)"/>
+
+<rect x="60" y="568" width="520" height="154" rx="16" class="card"/>
+<text x="84" y="598" class="kicker">03 // WAHZZA TOOLS</text>
+<text x="84" y="630" class="title">Browser-first utility platform</text>
+<text x="84" y="660" class="body">Practical file, image, PDF, audio and video workflows</text>
+<text x="84" y="684" class="body">with local-first processing and scalable cloud execution.</text>
+<circle cx="548" cy="598" r="6" fill="#22d3ee" filter="url(#glow)"/>
+
+<rect x="600" y="568" width="540" height="154" rx="16" class="card"/>
+<text x="624" y="598" class="kicker">04 // OLHO DE GATO</text>
+<text x="624" y="630" class="title">Field operations dashboard</text>
+<text x="624" y="660" class="body">Mobile-first tire inspections, fleet data, technical reports</text>
+<text x="624" y="684" class="body">and operational history for technicians and customers.</text>
+<circle cx="1108" cy="598" r="6" fill="#22d3ee" filter="url(#glow)"/>
+
+<text x="60" y="790" class="section">ENGINEERING MATRIX</text>
+<text x="60" y="816" class="kicker">STACK // SYSTEM DESIGN // DELIVERY</text>
+
+<rect x="60" y="846" width="340" height="126" rx="15" class="card"/>
+<text x="82" y="876" class="kicker">PRODUCT</text><text x="82" y="908" class="title">Full Stack</text>
+<text x="82" y="936" class="body">Next.js • React • TypeScript</text><text x="82" y="958" class="body">Node.js • REST APIs • UI systems</text>
+
+<rect x="430" y="846" width="340" height="126" rx="15" class="card"/>
+<text x="452" y="876" class="kicker">AUTOMATION</text><text x="452" y="908" class="title">Integration</text>
+<text x="452" y="936" class="body">n8n • Webhooks • APIs</text><text x="452" y="958" class="body">PowerShell • Jobs • Business rules</text>
+
+<rect x="800" y="846" width="340" height="126" rx="15" class="card"/>
+<text x="822" y="876" class="kicker">CLOUD</text><text x="822" y="908" class="title">Infrastructure</text>
+<text x="822" y="936" class="body">Cloudflare • Workers • VPS</text><text x="822" y="958" class="body">DNS • GitHub Actions • CI/CD</text>
+
+<rect x="60" y="992" width="340" height="126" rx="15" class="card"/>
+<text x="82" y="1022" class="kicker">DATA</text><text x="82" y="1054" class="title">Persistence</text>
+<text x="82" y="1082" class="body">PostgreSQL • Prisma • SQLite</text><text x="82" y="1104" class="body">SQL • Migrations • Data modeling</text>
+
+<rect x="430" y="992" width="340" height="126" rx="15" class="card"/>
+<text x="452" y="1022" class="kicker">REAL-TIME + 3D</text><text x="452" y="1054" class="title">Interactive Systems</text>
+<text x="452" y="1082" class="body">WebSockets • Durable Objects</text><text x="452" y="1104" class="body">Three.js • React Three Fiber</text>
+
+<rect x="800" y="992" width="340" height="126" rx="15" class="card"/>
+<text x="822" y="1022" class="kicker">ARCHITECTURE + SECURITY</text><text x="822" y="1054" class="title">Production Discipline</text>
+<text x="822" y="1082" class="body">DDD • CQRS • Idempotency</text><text x="822" y="1104" class="body">Rate limits • Observability • Tests</text>
+
+<text x="60" y="1188" class="section">WORKING MODEL</text>
+<text x="60" y="1214" class="kicker">SOURCE CONTROL TO PRODUCTION</text>
+<rect x="60" y="1240" width="1080" height="112" rx="16" class="card"/>
+<text x="88" y="1278" font-size="13" font-weight="700" class="white">GITHUB SCAN</text>
+<text x="224" y="1278" class="cyan">→</text><text x="254" y="1278" font-size="13" font-weight="700" class="white">SHA-PROTECTED PATCH</text>
+<text x="450" y="1278" class="cyan">→</text><text x="480" y="1278" font-size="13" font-weight="700" class="white">CI GATES</text>
+<text x="574" y="1278" class="cyan">→</text><text x="604" y="1278" font-size="13" font-weight="700" class="white">DEPLOY</text>
+<text x="678" y="1278" class="cyan">→</text><text x="708" y="1278" font-size="13" font-weight="700" class="white">RUNTIME VALIDATION</text>
+<text x="88" y="1318" class="body">Small coherent changes, exact repository state, reproducible builds and verification against the real runtime.</text>
+
+<path d="M60 1402H1140" stroke="#22d3ee55"/>
+<text x="60" y="1438" class="tiny">CONTRIBUTIONS // GitHub native activity graph is the source of truth and updates automatically.</text>
+<text x="1140" y="1438" text-anchor="end" class="tiny">github.com/Kanakoy-Yokanak</text>
+<text x="60" y="1470" class="tiny">BUILD • AUTOMATE • INTEGRATE • SECURE • SCALE</text>
+<rect x="28" y="64" width="1144" height="18" fill="url(#scan)" opacity="0"><animate attributeName="y" values="64;1450;64" dur="10s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.55;0" dur="10s" repeatCount="indefinite"/></rect>
+</svg>
