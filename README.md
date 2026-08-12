@@ -3,5 +3,5 @@
 </picture>
 
 <picture>
-  <img src="./assets/dark.svg?v=20260811d" alt="Kanakoy technical profile" width="100%">
+  <img src="./assets/dark.svg?v=20260812-portrait-v2" alt="Kanakoy technical profile" width="100%">
 </picture>
