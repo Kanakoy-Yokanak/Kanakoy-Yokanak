@@ -8,9 +8,16 @@ from pathlib import Path
 
 SEED = os.environ.get("DEFENSE_SEED", "local")
 ASSETS = (Path("assets/contributions-dark.svg"), Path("assets/contributions-light.svg"))
+BALL_RADIUS = 6.0
 
 BALL_X_RE = re.compile(r'<animate attributeName="cx" values="([^"]+)" keyTimes="([^"]+)" dur="([0-9.]+)s"')
 BALL_Y_RE = re.compile(r'<animate attributeName="cy" values="([^"]+)" keyTimes="([^"]+)" dur="([0-9.]+)s"')
+BALL_X_ANIM_RE = re.compile(
+    r'(<animate attributeName="cx" values=")([^"]+)(" keyTimes="[^"]+" dur="[0-9.]+s" calcMode="linear" repeatCount="indefinite"/>)'
+)
+BALL_Y_ANIM_RE = re.compile(
+    r'(<animate attributeName="cy" values=")([^"]+)(" keyTimes="[^"]+" dur="[0-9.]+s" calcMode="linear" repeatCount="indefinite"/>)'
+)
 PADDLE_GROUP_RE = re.compile(r'(<g aria-label="Horizontal defense paddle">)(.*?)(</g>)', re.S)
 PADDLE_Y_RE = re.compile(r'<animate attributeName="y" values="([^"]+)" keyTimes="([^"]+)" dur="([0-9.]+)s" calcMode="linear" repeatCount="indefinite"/>')
 BRICK_RE = re.compile(
@@ -61,43 +68,74 @@ def smooth_paddle_track(catches: list[float], rng: random.Random) -> tuple[list[
     return values, times
 
 
-def nearest_hit_bricks(svg: str, ball_x: list[float], ball_y: list[float]) -> list[tuple[int, float, float, float]]:
-    bricks = []
+def plan_frontline_hits(
+    svg: str,
+    ball_x: list[float],
+    ball_y: list[float],
+) -> tuple[list[tuple[int, float, float, float]], list[float], list[float]]:
+    """Plan collisions strictly from the exposed left edge toward the right.
+
+    Every outbound trip may destroy only a brick in the leftmost x-column that
+    still contains an active contribution. Within that exposed column, choose
+    the brick closest to the route's current y target. This preserves visual
+    variation while making it impossible to tunnel through the frontline.
+    """
+    bricks: list[tuple[int, float, float, float]] = []
     for match in BRICK_RE.finditer(svg):
         attrs = match.group("attrs")
         count_match = re.search(r'data-count="([0-9]+)"', attrs)
         count = int(count_match.group(1)) if count_match else 0
         if count <= 0:
             continue
+
         x = float(match.group("x"))
         y = float(match.group("y"))
         w = float(match.group("w"))
         h = float(match.group("h"))
-        bricks.append((match.start(), x + w / 2, y + h / 2))
+        bricks.append((match.start(), x, x + w / 2, y + h / 2))
 
     if not bricks:
-        return []
+        return [], ball_x, ball_y
 
+    revised_x = list(ball_x)
+    revised_y = list(ball_y)
     used: set[int] = set()
     hits: list[tuple[int, float, float, float]] = []
     denom = max(1, len(ball_x) - 1)
 
     for route_index in range(1, len(ball_x), 2):
-        tx = ball_x[route_index]
-        ty = ball_y[route_index]
-        choices = [
-            (abs(bx - tx) + 2.4 * abs(by - ty), start, bx, by)
-            for start, bx, by in bricks
-            if start not in used
-        ]
-        if not choices:
+        remaining = [brick for brick in bricks if brick[0] not in used]
+        if not remaining:
             break
-        _, start, bx, by = min(choices)
+
+        front_x = min(brick[1] for brick in remaining)
+        frontline = [brick for brick in remaining if abs(brick[1] - front_x) < 0.01]
+        original_target_y = revised_y[route_index]
+        start, left_x, center_x, center_y = min(
+            frontline,
+            key=lambda brick: (abs(brick[3] - original_target_y), brick[3]),
+        )
+
         used.add(start)
         hit_fraction = route_index / denom
-        hits.append((start, hit_fraction, bx, by))
+        hits.append((start, hit_fraction, center_x, center_y))
 
-    return hits
+        # Make the ball visibly contact the exposed left face of this brick.
+        revised_x[route_index] = left_x - BALL_RADIUS
+        revised_y[route_index] = center_y
+
+    return hits, revised_x, revised_y
+
+
+def rewrite_ball_route(svg: str, ball_x: list[float], ball_y: list[float]) -> str:
+    x_values = ";".join(fmt(value) for value in ball_x)
+    y_values = ";".join(fmt(value) for value in ball_y)
+
+    svg, x_count = BALL_X_ANIM_RE.subn(lambda m: m.group(1) + x_values + m.group(3), svg, count=2)
+    svg, y_count = BALL_Y_ANIM_RE.subn(lambda m: m.group(1) + y_values + m.group(3), svg, count=2)
+    if x_count != 2 or y_count != 2:
+        raise RuntimeError(f"expected two ball animations, got cx={x_count} cy={y_count}")
+    return svg
 
 
 def inject_brick_disappear(svg: str, hits: list[tuple[int, float, float, float]], duration: float) -> str:
@@ -187,18 +225,19 @@ def refine(path: Path) -> None:
         raise RuntimeError(f"ball route mismatch in {path}")
 
     rng = random.Random(f"{SEED}:paddle")
-    hits = nearest_hit_bricks(svg, ball_x, ball_y)
+    hits, revised_x, revised_y = plan_frontline_hits(svg, ball_x, ball_y)
     svg = inject_brick_disappear(svg, hits, duration)
+    svg = rewrite_ball_route(svg, revised_x, revised_y)
     ball_color = "#ff4d67" if "dark" in path.name else "#e11d48"
     svg = inject_hit_sparks(svg, hits, duration, ball_color)
     svg = refine_paddle(svg, rng)
     svg = svg.replace(
         "Contribution bricks come from GitHub and the defense route is regenerated from a workflow seed.",
-        "Contribution bricks disappear when struck; the defense paddle follows the live loop with smoothed human-like motion.",
+        "Contribution bricks are destroyed strictly from the exposed frontline; the defense paddle follows the live loop with smoothed human-like motion.",
         1,
     )
     path.write_text(svg, encoding="utf-8")
-    print(f"refined {path}: hits={len(hits)}")
+    print(f"refined {path}: frontline_hits={len(hits)}")
 
 
 def main() -> int:
