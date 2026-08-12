@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - ".github/scripts/render_contributions.py"
+      - ".github/scripts/refine_brick_defense.py"
       - ".github/workflows/contributions.yml"
 
 permissions:
@@ -35,7 +36,9 @@ jobs:
           CONTRIBUTIONS_TOKEN: ${{ github.token }}
           DEFENSE_SEED: ${{ github.run_id }}-${{ github.run_attempt }}
         shell: bash
-        run: python .github/scripts/render_contributions.py
+        run: |
+          python .github/scripts/render_contributions.py
+          python .github/scripts/refine_brick_defense.py
 
       - name: Commit updated defense field
         shell: bash
