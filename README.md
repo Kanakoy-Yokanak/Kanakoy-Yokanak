@@ -1,5 +1,5 @@
 <picture>
-  <img src="./assets/contributions-dark.svg?v=20260812-brick-defense-v6" alt="Kanakoy GitHub contribution brick defense" width="100%">
+  <img src="./assets/contributions-dark.svg?v=20260812-brick-defense-v7" alt="Kanakoy GitHub contribution brick defense" width="100%">
 </picture>
 
 <picture>
