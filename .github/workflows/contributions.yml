@@ -9,6 +9,7 @@ on:
     paths:
       - ".github/scripts/render_contributions.py"
       - ".github/scripts/refine_brick_defense.py"
+      - ".github/scripts/normalize_brick_timing.py"
       - ".github/workflows/contributions.yml"
 
 permissions:
@@ -39,6 +40,7 @@ jobs:
         run: |
           python .github/scripts/render_contributions.py
           python .github/scripts/refine_brick_defense.py
+          python .github/scripts/normalize_brick_timing.py
 
       - name: Commit updated defense field
         shell: bash
