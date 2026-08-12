@@ -1,4 +1,4 @@
-name: Update contribution graph
+name: Update contribution brick defense
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: contribution-graph
+  group: contribution-brick-defense
   cancel-in-progress: true
 
 jobs:
@@ -29,23 +29,24 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Render contribution calendars
+      - name: Render contribution brick defense
         env:
           GITHUB_LOGIN: Kanakoy-Yokanak
           CONTRIBUTIONS_TOKEN: ${{ github.token }}
+          DEFENSE_SEED: ${{ github.run_id }}-${{ github.run_attempt }}
         shell: bash
         run: python .github/scripts/render_contributions.py
 
-      - name: Commit updated calendars
+      - name: Commit updated defense field
         shell: bash
         run: |
           if git diff --quiet -- assets/contributions-dark.svg assets/contributions-light.svg; then
-            echo "Contribution calendar is already current."
+            echo "Contribution defense field is already current."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/contributions-dark.svg assets/contributions-light.svg
-          git commit -m "chore: refresh contribution graph"
+          git commit -m "chore: refresh contribution brick defense"
           git push
