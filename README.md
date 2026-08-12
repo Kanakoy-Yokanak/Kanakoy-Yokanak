@@ -1,5 +1,5 @@
 <picture>
-  <img src="./assets/contributions-dark.svg?v=20260811b" alt="Kanakoy GitHub contributions in the last year" width="100%">
+  <img src="./assets/contributions-dark.svg?v=20260812-brick-defense" alt="Kanakoy GitHub contribution brick defense" width="100%">
 </picture>
 
 <picture>
